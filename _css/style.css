@@ -245,4 +245,10 @@ header {
       background-size: 20px;
       background-color: #744; }
 
+#images-wrap {
+  clear: both; }
+
+footer {
+  clear: both; }
+
 /*# sourceMappingURL=style.css.map */

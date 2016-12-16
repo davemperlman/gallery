@@ -42,13 +42,14 @@ $images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
 							</form>
 						</section>
 					<?php endif ?>
-
+					<div id="images-wrap">
 					<?php foreach ($images as $img): ?>
 						<div class="img-panel">
 							<img class="thumbnail"src="<?php echo $img[path]; ?>" alt="">
 							<p class="caption"><?php echo $img['caption']; ?></p>
 						</div>
 					<?php endforeach ?>
+					</div>
 				</section>
 			</div>
 			<aside>
@@ -62,8 +63,8 @@ $images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
 			</ul>
 		</footer>
 		</div>
-	</body>	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
 		
-	</script>
+		</script>
+	</body>	
 </html>

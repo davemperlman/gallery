@@ -7,19 +7,17 @@ if ( isset($_POST['log-in']) ) {
 	$user     = $_POST['user'];
 	$password = $_POST['password'];
 
-	if ( User::validate_user($user, $password) == true ) {
+	if ( User::validate_user($user, $password) ) {
 		$_SESSION['user'] = serialize(new User($user, '1'));
-
 	} else {
 		echo "Not Valid";
 	}
 }
 
 if( isset($_POST['upload']) ) {
-	$_SESSION['user']->image_upload($_FILES['to-upload'], $_POST['caption']);
+	$user_object = unserialize($_SESSION['user']);
+	$user_object->image_upload($_FILES['to-upload'], $_POST['caption']);
 }
-
-
  ?>
 <!DOCTYPE html>
 <html>
