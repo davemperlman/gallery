@@ -120,6 +120,7 @@ header {
 	display: block;
 	max-width: 1200px;
 	min-height: 500px;
+	overflow: hidden;
 	#gallery {
 		width: 100%;
 		.img-panel {
@@ -133,8 +134,8 @@ header {
 			border: 2px solid #779;
 			position: relative;
 			margin-bottom: 20px;
-			margin-right: .1%;
-			margin-left: .1%;
+			margin-right: .125%;
+			margin-left: .125%;
 			&::after {
 				content: '';
 				display: block;
@@ -150,7 +151,8 @@ header {
 			}
 			&:hover {
 				img {
-					transform: scale(1.15);
+					transition: all 1.4s;
+					transform: scale(1.1);
 				}
 				.caption {
 					opacity: 1;
@@ -299,10 +301,42 @@ header {
 	}
 }
 
-#images-wrap {
+#image-wrapper {
 	clear: both;
 }
 
 footer {
 	clear: both;
+}
+
+.modal {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,.8);
+	z-index: 200;
+	img {
+		position: absolute;
+		top: 50%;
+		left: 35%;
+		width: 400px;
+	}
+}
+
+footer {
+	//width: 100%;
+	border-top: 2px dotted #000;
+	background-color: #dfdfdf; 
+	padding: 20px;
+	text-align: center;
+	ul {
+		width: 400px;
+		margin: 0 auto;
+		li {
+			display: inline-block;
+			width: 100px;
+		}
+	}
 }

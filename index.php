@@ -14,6 +14,7 @@ $images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
 	<head>
 		<link rel="stylesheet" href="_css/style.css">
 		<link rel="stylesheet" href="">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<title>Gallery</title>
 	</head>
 	<body>
@@ -42,28 +43,36 @@ $images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
 							</form>
 						</section>
 					<?php endif ?>
-
-					<?php foreach ($images as $img): ?>
-						<div class="img-panel">
-							<img class="thumbnail"src="<?php echo $img[path]; ?>" alt="">
-							<p class="caption"><?php echo $img['caption']; ?></p>
-						</div>
-					<?php endforeach ?>
+					<div id="image-wrapper">
+						<?php foreach ($images as $img): ?>
+								<div class="img-panel">
+									<img class="thumbnail"src="<?php echo $img[path]; ?>" alt="">
+									<p class="caption"><?php echo $img['caption']; ?></p>
+								</div>
+						<?php endforeach ?>
+					</div>
 				</section>
 			</div>
-			<aside>
-			</aside>
 			<footer>
-			<ul>
-				<h3>Filler Content</h3>
-				<li><a href="">More Stuff</a></li>
-				<li><a href="">Other Stuff</a></li>
-				<li><a href="">More Stuff</a></li>
-			</ul>
-		</footer>
+				<ul>
+					<h3>Filler Content</h3>
+					<li><a href="">More Stuff</a></li>
+					<li><a href="">Other Stuff</a></li>
+					<li><a href="">More Stuff</a></li>
+				</ul>
+				<p>&#169 Gallery Example 1989 - 2017</p>
+			</footer>
 		</div>
+		<script>
+			$('.img-panel').click( function() {
+				$(this).addClass('modal');
+				$(this).removeClass('img-panel');
+			});
+
+			$('.modal').click( function() {
+				$(this).addClass('img-panel');
+				$(this).removeClass('modal');
+			});
+		</script>
 	</body>	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-		
-	</script>
 </html>

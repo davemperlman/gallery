@@ -16,11 +16,10 @@ if ( isset($_POST['log-in']) ) {
 }
 
 if( isset($_POST['upload']) ) {
-	$_SESSION['user']->image_upload($_FILES['to-upload'], $_POST['caption']);
+	$unserialized = unserialize($_SESSION['user']);
+	$unserialized->image_upload($_FILES['to-upload'], $_POST['caption']);
 }
-
-
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
