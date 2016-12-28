@@ -15,10 +15,17 @@ if ( isset($_POST['log-in']) ) {
 }
 
 if( isset($_POST['upload']) ) {
+<<<<<<< HEAD
 	$user_object = unserialize($_SESSION['user']);
 	$user_object->image_upload($_FILES['to-upload'], $_POST['caption']);
 }
  ?>
+=======
+	$unserialized = unserialize($_SESSION['user']);
+	$unserialized->image_upload($_FILES['to-upload'], $_POST['caption']);
+}
+?>
+>>>>>>> update1
 <!DOCTYPE html>
 <html>
 <head>

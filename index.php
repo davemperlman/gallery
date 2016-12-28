@@ -7,19 +7,21 @@ if( isset($_POST['upload']) ) {
 	$unserialized = unserialize($_SESSION['user']);
 	$unserialized->image_upload($_FILES['to-upload'], $_POST['caption']);
 }
-$images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
+$images = $pdo->query("SELECT * FROM images LIMIT 20")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="_css/style.css">
 		<link rel="stylesheet" href="">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<title>Gallery</title>
 	</head>
 	<body>
 		<header>
 			<nav>
-			<h1>Gallery</h1>
+			<h1>Responsive Image Gallery</h1>
 				<ul class="nav-ul">
 					<li><a href="index.php"><span>Home</span></a></li>
 					<li><a href="admin.php"><span>Admin</span></a></li>
@@ -42,29 +44,25 @@ $images = $pdo->query("SELECT * FROM images")->fetchAll(PDO::FETCH_ASSOC);
 							</form>
 						</section>
 					<?php endif ?>
-					<div id="images-wrap">
-					<?php foreach ($images as $img): ?>
-						<div class="img-panel">
-							<img class="thumbnail"src="<?php echo $img[path]; ?>" alt="">
-							<p class="caption"><?php echo $img['caption']; ?></p>
-						</div>
-					<?php endforeach ?>
+					<div id="image-wrapper">
+						<?php foreach ($images as $img): ?>
+								<div class="img-panel">
+									<img class="thumbnail"src="<?php echo $img[path]; ?>" data-image='<?php echo $img[path]; ?>'>
+									<p class="caption"><?php echo $img['caption']; ?></p>
+								</div>
+						<?php endforeach ?>
 					</div>
 				</section>
 			</div>
-			<aside>
-			</aside>
 			<footer>
-			<ul>
-				<h3>Filler Content</h3>
-				<li><a href="">More Stuff</a></li>
-				<li><a href="">Other Stuff</a></li>
-				<li><a href="">More Stuff</a></li>
-			</ul>
-		</footer>
+				<ul>
+					<h3>Filler Content</h3>
+					<li><a href="">More Stuff</a></li>
+					<li><a href="">Other Stuff</a></li>
+					<li><a href="">More Stuff</a></li>
+				</ul>
+				<p>&#169 Gallery Example 1989 - 2017</p>
+			</footer>
 		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-		
-		</script>
 	</body>	
 </html>

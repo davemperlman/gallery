@@ -3,15 +3,16 @@ body {
   font-family: verdana;
   margin: 0;
   padding: 0;
-  background-color: rgba(150, 150, 180, 0.2); }
+  background: linear-gradient(to bottom, #acc, #c88);
+  height: 1400px; }
 
 h2 {
   margin: 20px;
-  display: inline-block; }
+  display: inline-block;
+  color: #fff; }
 
 header {
   width: 100%;
-  background-color: #556;
   color: #fff;
   overflow: hidden;
   height: 75px;
@@ -23,7 +24,6 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #556;
     position: relative; }
     header nav h1 {
       display: inline-block;
@@ -68,8 +68,7 @@ header {
           text-align: center;
           line-height: 40px;
           position: relative;
-          transition: all .5s;
-          background-color: #556; }
+          transition: all .5s; }
           header nav .nav-ul li a::after {
             content: '';
             width: 96px;
@@ -79,22 +78,22 @@ header {
             top: 0;
             left: 2px;
             bottom: -10px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.6);
             transform: scaleY(0);
             transform-origin: 0 bottom;
             transition: all .5s; }
           header nav .nav-ul li a:hover span {
             transform-origin: 0 top;
             transform: scaleY(0.85);
-            background-color: #5c5c6f; }
+            background: #bdd; }
           header nav .nav-ul li a:hover::after {
             transform: scaleY(0.15); }
 
 .container {
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.85);
   padding-left: 2px;
   padding-right: 2px;
   box-shadow: 1px 1px 2px #000; }
@@ -103,7 +102,8 @@ header {
   width: 100%;
   display: block;
   max-width: 1200px;
-  min-height: 500px; }
+  min-height: 500px;
+  overflow: hidden; }
   .gallery-wrap #gallery {
     width: 100%; }
     .gallery-wrap #gallery .img-panel {
@@ -114,11 +114,11 @@ header {
       float: left;
       background-color: #333;
       box-sizing: border-box;
-      border: 2px solid #779;
+      border: 1px solid #cfcfcf;
       position: relative;
       margin-bottom: 20px;
-      margin-right: .1%;
-      margin-left: .1%; }
+      margin-right: .125%;
+      margin-left: .125%; }
       .gallery-wrap #gallery .img-panel::after {
         content: '';
         display: block;
@@ -132,7 +132,8 @@ header {
         transition: all .5s;
         cursor: pointer; }
       .gallery-wrap #gallery .img-panel:hover img {
-        transform: scale(1.15); }
+        transition: all 1.4s;
+        transform: scale(1.1); }
       .gallery-wrap #gallery .img-panel:hover .caption {
         opacity: 1;
         top: 0;
@@ -188,10 +189,11 @@ header {
     background-image: linear-gradient(to bottom, #575, #8c8, #353); }
   #main-upload #caption {
     border: none;
-    border-bottom: 2px solid #333;
-    height: 20px;
-    line-height: 20px;
-    font-size: 16px; }
+    border-radius: 3px;
+    height: 40px;
+    padding: 0 5px;
+    line-height: 40px;
+    font-size: 13px; }
     #main-upload #caption:focus {
       outline: none; }
   #main-upload input[type="file"] {
@@ -200,14 +202,13 @@ header {
     #main-upload input[type="file"]:focus {
       outline: none; }
   #main-upload #label-button {
-    border: 1px solid #669;
     border-radius: 3px;
     background-image: url("../_img/file.png");
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: 5% 50%;
     mask-image: url("../_img/file.png");
-    background-color: #dfdfdf;
+    background-color: #fff;
     opacity: 1;
     color: #111;
     font-size: 13px;
@@ -225,25 +226,97 @@ header {
     line-height: 40px;
     transition: all .5s; }
     #main-upload #label-button:hover {
-      color: #5a5; }
+      background-color: #55b; }
   #main-upload #upload-submit {
     background-image: url("../_img/upload.png");
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: center;
-    height: 40px;
-    width: 44px;
-    border: 1px solid #669;
+    height: 41px;
+    line-height: 40px;
+    width: 40px;
     display: inline-block;
     position: relative;
-    bottom: -11px;
+    bottom: -12px;
     padding-right: 4px;
     background-color: #5a5;
     transition: all .5s; }
     #main-upload #upload-submit:hover {
-      transform: rotate(-180deg);
+      transform: rotate(90deg);
       background-size: 20px;
-      background-color: #744; }
+      background-color: #0f0; }
+
+#image-wrapper {
+  clear: both; }
+
+footer {
+  clear: both; }
+
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 200; }
+  .modal img {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 400px; }
+
+footer {
+  border-top: 2px dotted #000;
+  background-color: #dfdfdf;
+  padding: 20px;
+  text-align: center; }
+  footer ul {
+    width: 400px;
+    margin: 0 auto; }
+    footer ul li {
+      display: inline-block;
+      width: 100px; }
+
+@media screen and (max-width: 1000px) {
+  .gallery-wrap #gallery .img-panel {
+    width: 33%; } }
+@media screen and (max-width: 767px) {
+  .gallery-wrap #gallery .img-panel {
+    width: 50%;
+    margin: 0; }
+
+  header, header nav {
+    height: 100px; }
+
+  header nav .nav-ul {
+    width: 60%;
+    margin: 0 auto;
+    float: none;
+    clear: both;
+    position: relative;
+    display: block; }
+    header nav .nav-ul li {
+      display: inline-block; } }
+@media screen and (max-width: 550px) {
+  .gallery-wrap #image-wrapper {
+    width: 100%; }
+
+  .gallery-wrap #gallery .img-panel {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px; }
+
+  footer {
+    width: 100%;
+    padding: 5px; }
+    footer ul {
+      padding: 0; }
+
+  header nav h1 {
+    margin-left: 12%;
+    width: 76%;
+    font-size: 20px; } }
 
 #images-wrap {
   clear: both; }
